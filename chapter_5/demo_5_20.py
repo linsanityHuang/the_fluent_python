@@ -17,6 +17,13 @@ from inspect import signature
 sig = signature(clip)
 
 print(sig.return_annotation)
+'''
+signature 函 数 返 回 一 个 Signature 对 象，
+它 有 一 个 return_annotation 属 性 和 一 个parameters 属性，后者是一个字典，把参数名映射到 Parameter 对象上。
+每个 Parameter 对象自己也有 annotation 属性。
+
+示例 5-20 用到了这几个属性
+'''
 for param in sig.parameters.values():
 	note = repr(param.annotation).ljust(13)
 	print(note, ':', param.name, '=', param.default)

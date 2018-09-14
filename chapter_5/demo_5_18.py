@@ -7,7 +7,7 @@ inspect.Signature 对象有个 bind 方法，它可以把任意个参数绑定�
 import sys
 sys.path.append('./')
 import inspect
-from demo_5_10 import tag
+from chapter_5.demo_5_10 import tag
 # 获取 tag 函数（见示例 5-10）的签名
 sig = inspect.signature(tag)
 my_tag = {'name': 'img', 'title': 'Sunset Boulevard', 'src': 'sunset.jpg', 'cls': 'framed'}
