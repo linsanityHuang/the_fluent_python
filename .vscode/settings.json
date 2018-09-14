@@ -1,0 +1,9 @@
+{
+    "python.unitTest.pyTestArgs": [],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.promptToConfigure": false,
+    "python.pythonPath": "/anaconda3/bin/python",
+    "python.linting.enabled": false
+}
