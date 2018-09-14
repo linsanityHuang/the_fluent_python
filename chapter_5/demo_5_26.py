@@ -7,6 +7,8 @@ functools.partial 这个高阶函数用于部分应用一个函数。
 
 部分应用是指，基于一个函数创建一个新的可调用对象，把原函数的某些参数固定。
 
+functools.partialmethod 函数（Python 3.4 新增）的作用与 partial 一样，不过是用于处理方法的。
+
 使用这个函数可以把接受一个或多个参数的函数改编成需要回调的 API，这样参数更少。示例 5-26 做了简单的演示
 '''
 # 示例 5-26　使用 partial 把一个两参数函数改编成需要单参数的可调用对象
@@ -42,6 +44,9 @@ partial 的第一个参数是一个可调用对象，后面跟着任意个要绑
 示例 5-28　把 partial 应用到示例 5-10 中定义的 tag 函数上
 '''
 from chapter_5.demo_5_10 import tag
+# 从示例 5-10 中导入 tag 函数，查看它的 ID
+print(tag)
+# 使用 tag 创建 picture 函数，把第一个定位参数固定为 'img'，把 cls 关键字参数固定为 'pic-frame'
 picture = functools.partial(tag, 'img', cls='pic-frame')
 print(picture(src='wumpus.jpeg'))
 '''
@@ -51,7 +56,7 @@ print(picture)
 '''
 functools.partial(<function tag at 0x10b9e89d8>, 'img', cls='pic-frame')
 '''
-
+# functools.partial 对象提供了访问原函数和固定参数的属性
 print(picture.func)
 '''
 <function tag at 0x10b9e89d8>
