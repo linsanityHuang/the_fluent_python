@@ -21,3 +21,10 @@ def clip(text:str, max_len:'int > 0'=80) -> str:
 	if end is None:		# 没找到空格
 		end = len(text)
 	return text[:end].rstrip()
+
+if __name__ == '__main__':
+	'''
+	{'text': <class 'str'>, 'max_len': 'int > 0', 'return': <class 'str'>}
+	'''
+	# 注解不会做任何处理，只是存储在函数的 __annotations__ 属性（一个字典）中
+	print(clip.__annotations__)
