@@ -2,6 +2,11 @@ import re
 import reprlib
 '''
 示例 14-4　sentence_iter.py：使用迭代器模式实现 Sentence 类
+
+典型的迭代器
+Sentence是可迭代对象，对其调用iter函数，返回了SentenceIterator迭代器
+
+迭代器SentenceIterator实现了标准迭代器的两个方法，__next__和__iter__
 '''
 RE_WORD = re.compile('\w+')
 
@@ -44,15 +49,11 @@ class SentenceIterator:
 	def __iter__(self):
 		return self
 		
-		
-		
-
 
 if __name__ == '__main__':
 	s = Sentence('"The time has come," the Walrus said,')
 	print(s)
 	'''Sentence('"The time ha... Walrus said,')'''
-	# Sentence 实例可以迭代，稍后说明原因
 	for word in s:
 		print(word)
 	'''

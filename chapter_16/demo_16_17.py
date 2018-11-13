@@ -27,7 +27,6 @@ def averager():
 		count += 1
 		average = total/count
 	# 返回的 Result 会成为 grouper 函数中 yield from 表达式的值
-	print(Result(count, average))
 	return Result(count, average)
 
 
@@ -40,6 +39,7 @@ def grouper(results, key):
 		# averager 实例运行完毕后，返回的值绑定到 results[key] 上。while 循环会不断创建averager 实例，处理更多的值。
 		results[key] = yield from averager()
 		
+
 # 客户端代码， 即调用方
 # main 函数是客户端代码，用 PEP 380 定义的术语来说，是“调用方” 。这是驱动一切的函数。
 def main(data):
@@ -57,7 +57,7 @@ def main(data):
 			group.send(value)
 		# 把 None 传入 grouper，导致当前的 averager 实例终止，也让 grouper 继续运行，再创建一个 averager 实例，处理下一组值。
 		group.send(None)  # 重要！
-	print(results)  # 如果要调试， 去掉注释
+	# print(results)  # 如果要调试， 去掉注释
 	report(results)
 	
 
@@ -70,17 +70,11 @@ def report(results):
 		
 
 data = {
-	'girls;kg':
-		[40.9, 38.5, 44.3, 42.2, 45.2, 41.7, 44.5, 38.0, 40.6, 44.5],
-	
-	'girls;m':
-		[1.6, 1.51, 1.4, 1.3, 1.41, 1.39, 1.33, 1.46, 1.45, 1.43],
-	
-	'boys;kg':
-		[39.0, 40.8, 43.2, 40.8, 43.1, 38.6, 41.4, 40.6, 36.3],
-	
-	'boys;m':
-		[1.38, 1.5, 1.32, 1.25, 1.37, 1.48, 1.25, 1.49, 1.46], }
+	'girls;kg': [40.9, 38.5, 44.3, 42.2, 45.2, 41.7, 44.5, 38.0, 40.6, 44.5],
+	'girls;m': [1.6, 1.51, 1.4, 1.3, 1.41, 1.39, 1.33, 1.46, 1.45, 1.43],
+	'boys;kg': [39.0, 40.8, 43.2, 40.8, 43.1, 38.6, 41.4, 40.6, 36.3],
+	'boys;m': [1.38, 1.5, 1.32, 1.25, 1.37, 1.48, 1.25, 1.49, 1.46],
+}
 
 if __name__ == '__main__':
 	main(data)

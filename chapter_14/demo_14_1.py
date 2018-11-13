@@ -3,6 +3,11 @@ import reprlib
 '''
 示例 14-1 定义了一个 Sentence 类，通过索引从文本中提取单词。
 示例 14-1　sentence.py：把句子划分为单词序列
+
+任何 Python 序列都可迭代的原因是，它们都实现了 __getitem__ 方法。
+其实，标准的序列也都实现了 __iter__ 方法，因此你也应该这么做。
+
+此例中Sentence类可以迭代的原因是其实现了 __getitem__ 方法。
 '''
 
 
@@ -33,7 +38,7 @@ if __name__ == '__main__':
 	s = Sentence('"The time has come," the Walrus said,')
 	print(s)
 	'''Sentence('"The time ha... Walrus said,')'''
-	# Sentence 实例可以迭代，稍后说明原因
+	# Sentence 实例可以迭代，是因为其实现了__getitem__特殊方法
 	for word in s:
 		print(word)
 	'''

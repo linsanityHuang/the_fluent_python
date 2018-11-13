@@ -11,6 +11,7 @@ from collections import namedtuple
 
 Result = namedtuple('Result', 'count average')
 
+
 def averager():
 	count = 0
 	total = 0.0

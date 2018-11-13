@@ -25,3 +25,22 @@ class Sentence:
 	
 	def __iter__(self):
 		return (match.group() for match in RE_WORD.finditer(self.text))
+
+
+if __name__ == '__main__':
+	s = Sentence('"The time has come," the Walrus said,')
+	print(s)
+	'''Sentence('"The time ha... Walrus said,')'''
+	for word in s:
+		print(word)
+	'''
+	The
+	time
+	has
+	come
+	the
+	Walrus
+	said
+	'''
+	print(list(s))
+	'''['The', 'time', 'has', 'come', 'the', 'Walrus', 'said']'''

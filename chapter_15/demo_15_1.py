@@ -30,4 +30,4 @@ print(fp)
 print(fp.closed, fp.encoding)
 '''True utf-8'''
 # 但是不能在 fp 上执行 I/O 操作，因为在 with 块的末尾，调用 TextIOWrapper.__exit__ 方法把文件关闭了
-fp.read(60)
+# fp.read(60)

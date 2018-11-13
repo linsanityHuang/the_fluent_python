@@ -5,7 +5,8 @@ from inspect import getgeneratorstate
 '''
 
 
-def simple_coroutine():					#协程使用生成器函数定义：定义体中有 yield 关键字
+# 协程使用生成器函数定义：定义体中有 yield 关键字
+def simple_coroutine():
 	print('-> coroutine started')
 	# yield 在表达式中使用；如果协程只需从客户那里接收数据，
 	# 那么产出的值是 None——这个值是隐式指定的，因为 yield 关键字右边没有表达式

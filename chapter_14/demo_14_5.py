@@ -1,4 +1,6 @@
 '''
+实现相同功能，但却符合 Python 习惯的方式是，用生成器函数代替 SentenceIterator 类。
+
 示例 14-5　sentence_gen.py：使用生成器函数实现 Sentence 类
 '''
 
@@ -25,13 +27,13 @@ class Sentence:
 		# 这个 return 语句不是必要的；这个函数可以直接“落空” ，自动返回
 		# 不管有没有return 语句，生成器函数都不会抛出 StopIteration 异常，而是在生成完全部值之后会直接退出。
 		return
+	# 不用再单独定义一个迭代器类！
 
 
 if __name__ == '__main__':
 	s = Sentence('"The time has come," the Walrus said,')
 	print(s)
 	'''Sentence('"The time ha... Walrus said,')'''
-	# Sentence 实例可以迭代，稍后说明原因
 	for word in s:
 		print(word)
 	'''
@@ -43,6 +45,5 @@ if __name__ == '__main__':
 	Walrus
 	said
 	'''
-	# 因为可以迭代，所以 Sentence 对象可以用于构建列表和其他可迭代的类型
 	print(list(s))
 	'''['The', 'time', 'has', 'come', 'the', 'Walrus', 'said']'''
