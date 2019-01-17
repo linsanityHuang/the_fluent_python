@@ -14,9 +14,9 @@ import functools
 
 def clock(func):
 	@functools.wraps(func)
-	def clocked(*args, **kwargs):				#定义内部函数 clocked，它接受任意个定位参数
+	def clocked(*args, **kwargs):  # 定义内部函数 clocked，它接受任意个定位参数
 		t0 = time.time()
-		result = func(*args, **kwargs)		#这行代码可用，是因为 clocked 的闭包中包含自由变量 func
+		result = func(*args, **kwargs)  # 这行代码可用，是因为 clocked 的闭包中包含自由变量 func
 		elapsed = time.time() - t0
 		name = func.__name__
 		arg_lst = []
@@ -28,7 +28,8 @@ def clock(func):
 		arg_str = ', '.join(arg_lst)
 		print('[%0.8fs] %s(%s) -> %r' % (elapsed, name, arg_str, result))
 		return result
-	return clocked					# 返回内部函数，取代被装饰的函数
+	
+	return clocked  # 返回内部函数，取代被装饰的函数
 
 
 @clock
@@ -38,7 +39,7 @@ def snooze(seconds):
 
 @clock
 def factorial(n):
-	return 1 if n < 2 else n*factorial(n-1)
+	return 1 if n < 2 else n * factorial(n - 1)
 
 
 if __name__ == '__main__':

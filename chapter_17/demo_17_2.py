@@ -2,7 +2,9 @@
 示例 17-2　flags.py：依序下载的脚本；另外两个脚本会重用其中几个函数
 '''
 
-import os, time, sys
+import os
+import time
+import sys
 
 import requests
 

@@ -7,7 +7,7 @@ from math import hypot
 
 class Vector:
 
-	def __init__(self, x=0, y=0):
+	def __init__(self, x: int=0, y=0):
 		self.x = x
 		self.y = y
 
@@ -40,9 +40,11 @@ class Vector:
 
 
 if __name__ == '__main__':
-	a = Vector(5, 12)
+	a = Vector('5', '12')
 	b = Vector(3, 4)
-	print('a is %s ' % a)
-	print('b is %s ' % b)
-	print(abs(a), abs(b))
-	print(a+b)
+	print(a)
+	print(b)
+	# print('a is %s ' % a)
+	# print('b is %s ' % b)
+	# print(abs(a), abs(b))
+	# print(a+b)
